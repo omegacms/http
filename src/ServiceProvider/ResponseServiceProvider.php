@@ -26,9 +26,9 @@ use Omega\Http\Response;
 
 /**
  * Response service provider class.
- * 
- * The `ResponseServiceProvider` class is responsible for binding the Response class 
- * to the application container in Omega. 
+ *
+ * The `ResponseServiceProvider` class is responsible for binding the Response class
+ * to the application container in Omega.
  *
  * @category    Omega
  * @package     Omega\Http

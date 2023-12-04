@@ -29,9 +29,9 @@ use InvalidArgumentException;
 
 /**
  * Response class.
- * 
- * The `Response` class provides methods to build and send HTTP responses in an 
- * Omega application. 
+ *
+ * The `Response` class provides methods to build and send HTTP responses in an
+ * Omega application.
  *
  * @category    Omega
  * @package     Omega\Http
@@ -43,10 +43,10 @@ use InvalidArgumentException;
  */
 class Response
 {
-    /** 
-     * Response Types 
-     * 
-     * Constants defining different response types. 
+    /**
+     * Response Types
+     *
+     * Constants defining different response types.
      */
     public const REDIRECT = 'REDIRECT';
     public const HTML     = 'HTML';
@@ -87,11 +87,11 @@ class Response
      */
     private array $headers = [];
 
-    /** 
-     * Get or set the response content. 
-     * 
-     * @param  mixed $content Holds the response content (optional). 
-     * @return mixed|$this Returns the content if no argument is provided, otherwise returns $this. 
+    /**
+     * Get or set the response content.
+     *
+     * @param  mixed $content Holds the response content (optional).
+     * @return mixed|$this Returns the content if no argument is provided, otherwise returns $this.
      */
     public function content( mixed $content = null ) : mixed
     {
@@ -104,11 +104,11 @@ class Response
         return $this;
     }
 
-    /** 
-     * Get or set the HTTP status code for the response. 
-     * 
-     * @param  ?int $status Holds the HTTP status code (optional). 
-     * @return int|$this Returns the status code if no argument is provided, otherwise returns $this. 
+    /**
+     * Get or set the HTTP status code for the response.
+     *
+     * @param  ?int $status Holds the HTTP status code (optional).
+     * @return int|$this Returns the status code if no argument is provided, otherwise returns $this.
      */
     public function status( ?int $status = null ) : int|static
     {
@@ -121,12 +121,12 @@ class Response
         return $this;
     }
 
-    /** 
-     * Add a custom HTTP header to the response. 
-     * 
-     * @param  string $key   Holds the header key. 
-     * @param  string $value Holds the header value. 
-     * @return $this Returns $this for method chaining. 
+    /**
+     * Add a custom HTTP header to the response.
+     *
+     * @param  string $key   Holds the header key.
+     * @param  string $value Holds the header value.
+     * @return $this Returns $this for method chaining.
      */
     public function header( string $key, string $value ) : static
     {
@@ -135,11 +135,11 @@ class Response
         return $this;
     }
 
-    /** 
-     * Set the response to a redirect with the given URL. 
-     * 
-     * @param ?string $redirect Holds the URL to redirect to (optional). 
-     * @return string|static|null Returns the redirect URL if no argument is provided, otherwise returns $this. 
+    /**
+     * Set the response to a redirect with the given URL.
+     *
+     * @param ?string $redirect Holds the URL to redirect to (optional).
+     * @return string|static|null Returns the redirect URL if no argument is provided, otherwise returns $this.
      */
     public function redirect( string $redirect = null ) : static|string|null
     {
@@ -153,11 +153,11 @@ class Response
         return $this;
     }
 
-    /** 
-     * Set the response content type to JSON and provide JSON data. 
-     * 
-     * @param mixed $content Holds the JSON content to send. 
-     * @return $this Returns $this for method chaining. 
+    /**
+     * Set the response content type to JSON and provide JSON data.
+     *
+     * @param mixed $content Holds the JSON content to send.
+     * @return $this Returns $this for method chaining.
      */
     public function json( mixed $content ) : static
     {
@@ -167,11 +167,11 @@ class Response
         return $this;
     }
 
-    /** 
-     * Get or set the response type (HTML, JSON, or REDIRECT). 
-     * 
-     * @param  string|null $type Holds the response type (optional). 
-     * @return string|$this Returns the response type if no argument is provided, otherwise returns $this. 
+    /**
+     * Get or set the response type (HTML, JSON, or REDIRECT).
+     *
+     * @param  string|null $type Holds the response type (optional).
+     * @return string|$this Returns the response type if no argument is provided, otherwise returns $this.
      */
     public function type( ?string $type = null ) : string|static
     {
@@ -184,12 +184,12 @@ class Response
         return $this;
     }
 
-    /** 
-     * Send the HTTP response to the client. 
-     * 
-     * This method sends the response headers, status code, and content to the client. 
-     * 
-     * @return void 
+    /**
+     * Send the HTTP response to the client.
+     *
+     * This method sends the response headers, status code, and content to the client.
+     *
+     * @return void
      */
     public function send() : void
     {
