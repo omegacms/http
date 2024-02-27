@@ -49,7 +49,7 @@ class ResponseServiceProvider
      */
     public function bind( Application $application ) : void
     {
-        $application->bind( 'response', function ( $app ) {
+        $application->alias( 'response', function ( $app ) {
             return new Response();
         } );
     }
