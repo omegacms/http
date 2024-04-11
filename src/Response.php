@@ -91,9 +91,9 @@ class Response
      * Get or set the response content.
      *
      * @param  mixed $content Holds the response content (optional).
-     * @return mixed|$this Returns the content if no argument is provided, otherwise returns $this.
+     * @return $this Returns the content if no argument is provided, otherwise returns $this.
      */
-    public function content( mixed $content = null ) : mixed
+    public function content( mixed $content = null ) : self
     {
         if ( is_null( $content ) ) {
             return $this->content;
@@ -194,7 +194,7 @@ class Response
     public function send() : void
     {
         foreach ( $this->headers as $key => $value ) {
-            header( "{$key}: {$value}" );
+            header( $key . ":" . $value );
         }
 
         if ( $this->type === static::HTML ) {
@@ -213,10 +213,10 @@ class Response
 
 
         if ( $this->type === static::REDIRECT ) {
-            header( "Location: {$this->redirect}" );
+            header( "Location: $this->redirect" );
             return;
         }
 
-        throw new InvalidArgumentException( "{$this->type} is not a recognised type" );
+        throw new InvalidArgumentException( "$this->type is not a recognised type" );
     }
 }
