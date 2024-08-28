@@ -26,6 +26,7 @@ use function is_null;
 use function json_encode;
 use function http_response_code;
 use InvalidArgumentException;
+use Omega\View\View;
 
 /**
  * Response class.
@@ -91,9 +92,9 @@ class Response
      * Get or set the response content.
      *
      * @param  mixed $content Holds the response content (optional).
-     * @return $this Returns the content if no argument is provided, otherwise returns $this.
+     * @return $this|View Returns the content if no argument is provided, otherwise returns $this.
      */
-    public function content( mixed $content = null ) : self
+    public function content( mixed $content = null ) : self|View
     {
         if ( is_null( $content ) ) {
             return $this->content;
