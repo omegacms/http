@@ -70,9 +70,9 @@ class Response
     /**
      * Response content.
      *
-     * @var string $content Holds the response content.
+     * @var string|View $content Holds the response content.
      */
-    private mixed $content = '';
+    private string|View $content = '';
 
     /**
      * Status code.
@@ -84,17 +84,17 @@ class Response
     /**
      * Headers array.
      *
-     * @var array $headers Holds an array of custom HTTP headers for the response.
+     * @var array<string, string> $headers Holds an array of custom HTTP headers for the response.
      */
     private array $headers = [];
 
     /**
      * Get or set the response content.
      *
-     * @param  mixed $content Holds the response content (optional).
-     * @return $this|View Returns the content if no argument is provided, otherwise returns $this.
+     * @param  string|View|null $content Holds the response content (optional).
+     * @return string|self|View|null Returns the content if no argument is provided, otherwise returns $this.
      */
-    public function content( mixed $content = null ) : self|View
+    public function content( string|View|null $content = null ) : string|self|View|null
     {
         if ( is_null( $content ) ) {
             return $this->content;
@@ -157,10 +157,10 @@ class Response
     /**
      * Set the response content type to JSON and provide JSON data.
      *
-     * @param mixed $content Holds the JSON content to send.
+     * @param string|View $content Holds the JSON content to send.
      * @return $this Returns $this for method chaining.
      */
-    public function json( mixed $content ) : static
+    public function json( string|View $content ) : static
     {
         $this->content = $content;
         $this->type = static::JSON;
