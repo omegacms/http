@@ -1,3 +1,4 @@
+![PHPStan Level](https://img.shields.io/badge/PHPStan-level_9-brightgreen)
 # Http Package
 
 The Helpers package provides provides methods to build and send HTTP responses in an Omega application.
