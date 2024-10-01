@@ -22,6 +22,7 @@ namespace Omega\Http\ServiceProvider;
  * @use
  */
 use Omega\Application\Application;
+use Omega\Container\ServiceProvider\ServiceProviderInterface;
 use Omega\Http\Response;
 
 /**
@@ -39,7 +40,7 @@ use Omega\Http\Response;
  * @license     https://www.gnu.org/licenses/gpl-3.0-standalone.html     GPL V3.0+
  * @version     1.0.0
  */
-class ResponseServiceProvider
+class ResponseServiceProvider implements ServiceProviderInterface
 {
     /**
      * Bind the class.
@@ -49,7 +50,7 @@ class ResponseServiceProvider
      */
     public function bind( Application $application ) : void
     {
-        $application->alias( 'response', function ( $application ) {
+        $application->alias( 'response', function () {
             return new Response();
         } );
     }
